@@ -1,0 +1,11 @@
+ctrlc_exit = "false"
+startup = [
+    "source startup.nu",
+    "let optionals = (ls | where name == optionals.nu | get name); if $optionals == '' { touch optionals.nu; echo $'let exists-optionals = (char dq)(char dq)(char nl)' | save -r -a optionals.nu } {}",
+    "source inject.nu",
+    "init-optionals",
+    "source optionals.nu"
+]
+
+[env]
+EDITOR="vim"
