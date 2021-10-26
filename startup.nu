@@ -62,11 +62,16 @@ def replicate [
     "" | str lpad -c $"($str)" -l $count
 }
 
+alias style_red_bold = ansi -e '31;1m'
+alias style_purple_underline = ansi -e '35;4m'
+alias style_white_italic = ansi -e '97;3m'
+alias style_clear = ansi -e '0m'
+
 def error [
     title:any
     message:any
 ] {
-    echo $"(ansi -e '31;1m')[ERORR](ansi -e '0m') (ansi -e '35;4m')($title):(ansi -e '0m') (ansi -e '97;3m')($message)(ansi -e '0m')"
+    echo $"(style_red_bold)[ERORR](style_clear) (style_purple_underline)($title):(style_clear) (style_white_italic)($message)(style_clear)"
 }
 
 # copy unicode character into clipboard
