@@ -1,4 +1,4 @@
-# POC Sipmle injection scripts by name
+# nu_inject
 
 The purpose of this project is to allow inject script files by the name.
 
