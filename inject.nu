@@ -5,7 +5,7 @@ def init-optionals [] {
     let optional-files-str = ($optional-files | str collect ',')
 
     if $exists-optionals != $optional-files-str {
-        echo $'let exists-optionals = "($optional-files-str)"(char nl)' | save -r .\optionals.nu
+        echo $'let exists-optionals = "($optional-files-str)"(char nl)' | save -r optionals.nu
 
         echo $"def inject [] {(char nl)$(char dq)Available injects:(char lp)char nl(char rp)(char dq)(char nl)" | save -r -a optionals.nu
         $optional-files | each { |f| let fname = ($f | path basename | str find-replace ".nu" "" ); echo $"$(char dq)>  inject-($fname)(char lp)char nl(char rp)(char dq)(char nl)" | save -r -a optionals.nu }
